@@ -156,3 +156,51 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(mapCard);
     }
 });
+// --- MENU BURGER (ouverture / fermeture de l'overlay mobile) ---
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (burgerBtn && mobileMenu) {
+    burgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Ferme le menu mobile quand on clique sur un lien
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+}
+
+// --- NAV QUI RESTE FIXE EN HAUT ET SE REPLIE AU SCROLL ---
+// En scrollant vers le bas : les liens disparaissent et le bouton burger apparait (meme sur PC).
+// En remontant : tout revient exactement comme avant.
+const mainHeader = document.querySelector('.main-header');
+const navbar = document.querySelector('.navbar');
+
+if (mainHeader && navbar) {
+    let lastScrollY = window.scrollY;
+    const SCROLL_THRESHOLD = 60; // distance avant que la nav commence a se replier
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // Ombre legere sous la nav des qu'on quitte le haut de la page
+        if (currentScrollY > 10) {
+            mainHeader.classList.add('is-scrolled');
+        } else {
+            mainHeader.classList.remove('is-scrolled');
+        }
+
+        if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
+            // On scrolle vers le bas -> on replie les liens dans le burger
+            navbar.classList.add('links-collapsed');
+        } else if (currentScrollY < lastScrollY) {
+            // On remonte -> retour a l'affichage normal
+            navbar.classList.remove('links-collapsed');
+        }
+
+        lastScrollY = currentScrollY;
+    }, { passive: true });
+}
