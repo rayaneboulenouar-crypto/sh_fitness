@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SH Fitness Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="img/sh.fitness.logo.png" alt="SH.FITNESS CLUB" class="logo-img"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="index.html#pricing">Tarifs</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#location" class="btn-nav-contact">Contact</a></li>
+            </ul>
+            <div class="menu-burger" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="index.html#pricing">Tarifs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#location" class="btn-nav-contact-mobile">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- BLOG HERO -->
+    <section class="page-hero">
+        <span class="sub-title">NOTRE BLOG</span>
+        <h1>Conseils, actu et vécu de la communauté SH Fitness</h1>
+        <p>Entraînement, nutrition et motivation : retrouvez nos derniers articles pour progresser à chaque étape de votre transformation.</p>
+    </section>
+
+    <!-- BLOG GRID -->
+    <section class="blog-section">
+        <div class="blog-grid">
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-musculation.jpg" alt="Musculation" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Musculation</span>
+                    <h3 class="blog-card-title">5 erreurs qui freinent votre prise de masse</h3>
+                    <p class="blog-card-excerpt">Récupération, volume d'entraînement, alimentation : les pièges les plus courants pour progresser en musculation, et comment les éviter.</p>
+                    <span class="blog-card-date">28 Août 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-nutrition.jpg" alt="Nutrition" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Nutrition</span>
+                    <h3 class="blog-card-title">Bien manger avant et après l'entraînement</h3>
+                    <p class="blog-card-excerpt">Nos coachs partagent leurs conseils pour optimiser vos repas autour des séances et maximiser vos résultats.</p>
+                    <span class="blog-card-date">14 Août 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-cardio.jpg" alt="Cardio" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Cardio & Functional</span>
+                    <h3 class="blog-card-title">Cardio ou musculation : que choisir en premier ?</h3>
+                    <p class="blog-card-excerpt">On répond à la question qu'on nous pose le plus souvent à l'accueil, avec des exemples concrets selon vos objectifs.</p>
+                    <span class="blog-card-date">2 Août 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-femmes.jpg" alt="Espace femmes" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Espace 100% Femmes</span>
+                    <h3 class="blog-card-title">Se lancer en salle : le témoignage de nos membres</h3>
+                    <p class="blog-card-excerpt">Plusieurs membres de notre espace 100% femmes racontent leurs débuts et comment elles ont pris confiance en elles.</p>
+                    <span class="blog-card-date">20 Juillet 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-motivation.jpg" alt="Motivation" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Motivation</span>
+                    <h3 class="blog-card-title">Comment rester régulier même les semaines chargées</h3>
+                    <p class="blog-card-excerpt">Des astuces simples de nos coachs pour garder le rythme d'entraînement sans se mettre la pression.</p>
+                    <span class="blog-card-date">5 Juillet 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="blog-card">
+                <img src="img/blog-coachs.jpg" alt="Coachs" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Coaching</span>
+                    <h3 class="blog-card-title">Pourquoi un coach change tout dans votre progression</h3>
+                    <p class="blog-card-excerpt">Correction des mouvements, suivi personnalisé, motivation : ce qu'un coaching sur mesure change réellement.</p>
+                    <span class="blog-card-date">18 Juin 2026</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="img/sh.fitness.logo.png" alt="SH Fitness Club" class="footer-logo">
+                <p class="footer-desc">
+                    Transformez votre corps et votre esprit grâce à un accompagnement personnalisé et des programmes d'entraînement sur mesure.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/shfitness.ma/?hl=fr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61577087640786"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="index.html#pricing">Tarifs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#services">Coaching personnalisé</a></li>
+                    <li><a href="index.html#services">Plans nutritionnels</a></li>
+                    <li><a href="index.html#services">Entraînement de groupe</a></li>
+                    <li><a href="index.html#services">Renforcement & Conditionnement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Horaires</h4>
+                <p class="hours-text"><strong>Lundi - Vendredi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Samedi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Dimanche :</strong> 08:00 - 18:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SH Fitness Club. Tous droits réservés.</p>
+            <p>Discipline. Concentration. Résultats.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

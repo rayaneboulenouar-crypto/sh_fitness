@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - SH Fitness Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ABOUT PAGE SPECIFIC STYLES */
+.about-hero-section {
+    padding: 100px 50px 60px 50px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(0, 255, 0, 0.05) 0%, rgba(0,0,0,1) 70%);
+}
+
+.about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-subtitle {
+    color: #00ff00;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    background: linear-gradient(180deg, #ffffff 40%, #757575 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-hero-desc {
+    font-family: 'Open Sans', sans-serif;
+    color: #b3b3b3;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about-story-section {
+    padding: 80px 50px;
+}
+
+.about-story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-image-box {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #1a1a1a;
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-title-custom {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.story-text {
+    font-family: 'Open Sans', sans-serif;
+    color: #a3a3a3;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.values-section {
+    padding: 80px 50px;
+    background-color: #080808;
+}
+
+.values-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    background-color: #0d0d0d;
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff00;
+}
+
+.value-icon {
+    font-size: 28px;
+    color: #00ff00;
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+}
+
+.value-card p {
+    font-family: 'Open Sans', sans-serif;
+    color: #888888;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-stats-section {
+    padding: 60px 50px;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    background-color: #000;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00ff00;
+}
+
+.stat-label {
+    font-family: 'Open Sans', sans-serif;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 900px) {
+    .about-story-container, .values-grid { grid-template-columns: 1fr; }
+    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .about-main-title { font-size: 2.8rem; }
+}
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="img/sh.fitness.logo.png" alt="Logo" class="logo-img"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html" class="active">À Propos</a></li>
+                <li><a href="index.html#pricing">Tarifs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#location" class="btn-nav-contact">Contact</a></li>
+            </ul>
+            <div class="menu-burger" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="index.html#pricing">Tarifs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#location" class="btn-nav-contact-mobile">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- ABOUT HERO -->
+    <section class="about-hero-section">
+        <div class="about-hero-content">
+            <span class="about-subtitle">NOTRE HISTOIRE</span>
+            <h1 class="about-main-title">PLUS QU'UNE SALLE,<br>UN STYLE DE VIE</h1>
+            <p class="about-hero-desc">
+                Chez SH Fitness Club, nous croyons que chaque entraînement est une étape de plus vers la meilleure version de vous-même.
+            </p>
+        </div>
+    </section>
+
+    <!-- STORY & MISSION -->
+    <section class="about-story-section">
+        <div class="about-story-container">
+            <div class="story-image-box">
+                <img src="img/coatchingimage.png" alt="SH Fitness Club" class="story-img">
+            </div>
+            <div class="story-content">
+                <span class="about-subtitle">QUI SOMMES-NOUS</span>
+                <h2 class="section-title-custom">Repousser vos limites au quotidien</h2>
+                <p class="story-text">
+                    Fondé avec la passion du sport et du dépassement de soi, **SH Fitness Club** est né pour offrir un cadre moderne, motivant et inclusif à Rabat. Que vous soyez débutant ou athlète confirmé, notre mission est de vous accompagner avec des équipements de pointe et des coachs certifiés.
+                </p>
+                <p class="story-text">
+                    Nous avons conçu des espaces dédiés à chaque besoin : zone de musculation lourde, espace cardio interactif, et un espace 100% réservé aux femmes pour s'entraîner en toute sérénité.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <span class="about-subtitle">NOS VALEURS</span>
+                <h2 class="section-title-custom">Ce qui nous anime</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Performance</h3>
+                    <p>Des équipements modernes et des programmes ciblés pour maximiser vos résultats.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>Communauté</h3>
+                    <p>Un esprit d'entraide et de motivation où chacun progresse à son rythme.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Discipline</h3>
+                    <p>Un accompagnement rigoureux pour vous aider à rester constant et atteindre vos objectifs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="about-stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-num count-number" data-target="5" data-suffix="+">0+</span>
+                <span class="stat-label">Années d'expérience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num count-number" data-target="1600" data-suffix="+">0+</span>
+                <span class="stat-label">Membres actifs</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num count-number" data-target="10" data-suffix="+">0+</span>
+                <span class="stat-label">Coachs certifiés</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num count-number" data-target="100" data-suffix="%">0%</span>
+                <span class="stat-label">Engagement & Suivi</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="img/sh.fitness.logo.png" alt="Logo" class="footer-logo">
+                <p class="footer-desc">Transformez votre corps et votre esprit avec notre accompagnement.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pricing">Tarifs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Horaires</h4>
+                <p class="hours-text"><strong>Lun - Ven :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Dimanche :</strong> 08:00 - 18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SH Fitness Club. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

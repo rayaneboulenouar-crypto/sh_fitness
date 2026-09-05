@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs - SH Fitness Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* TARIFS PAGE SPECIFIC STYLES */
+        .plans-section {
+            padding: 40px 50px 90px 50px;
+        }
+        .plans-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: stretch;
+        }
+        .plan-card {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .plan-card:hover {
+            border-color: #333;
+        }
+        .plan-card.featured {
+            background-color: #0f120f;
+            border: 1px solid #00ff00;
+            position: relative;
+            transform: scale(1.03);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -13px;
+            left: 30px;
+            background-color: #00ff00;
+            color: #000000;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+        .plan-desc {
+            font-family: 'Open Sans', sans-serif;
+            color: #999999;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0 0 25px 0;
+        }
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 25px;
+        }
+        .plan-amount {
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+        .plan-period {
+            color: #888888;
+            font-size: 13px;
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            flex-grow: 1;
+        }
+        .plan-features li {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 13.5px;
+            color: #d6d6d6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .plan-features li i {
+            color: #00ff00;
+            font-size: 12px;
+            width: 16px;
+        }
+        .plan-cta {
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 14px 20px;
+            border-radius: 25px;
+            border: 1px solid #333;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .plan-card.featured .plan-cta {
+            background-color: #00ff00;
+            color: #000000;
+            border-color: #00ff00;
+        }
+        .plan-cta:hover {
+            background-color: #00ff00;
+            color: #000000;
+            border-color: #00ff00;
+        }
+
+        .perks-section {
+            padding: 80px 50px;
+            background-color: #080808;
+        }
+        .perks-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px auto;
+        }
+        .perks-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .perk-card {
+            text-align: center;
+            padding: 30px 15px;
+        }
+        .perk-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            color: #00ff00;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px auto;
+        }
+        .perk-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+        .perk-card p {
+            font-family: 'Open Sans', sans-serif;
+            color: #888888;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .faq-section {
+            padding: 80px 50px 100px 50px;
+        }
+        .faq-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 14px;
+            padding: 5px 25px;
+            margin-bottom: 15px;
+        }
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 18px 0;
+            font-weight: 600;
+            font-size: 14.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+";
+            color: #00ff00;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+        .faq-item p {
+            font-family: 'Open Sans', sans-serif;
+            color: #a3a3a3;
+            font-size: 13.5px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        @media screen and (max-width: 992px) {
+            .plans-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .plan-card.featured { transform: none; }
+            .perks-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media screen and (max-width: 600px) {
+            .plans-section, .perks-section, .faq-section { padding-left: 20px; padding-right: 20px; }
+            .perks-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="img/sh.fitness.logo.png" alt="SH.FITNESS CLUB" class="logo-img"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="tarifs.html" class="active">Tarifs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="btn-nav-contact">Contact</a></li>
+            </ul>
+            <div class="menu-burger" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html" class="btn-nav-contact-mobile">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 1 : HERO -->
+    <section class="page-hero">
+        <span class="sub-title">NOS FORMULES</span>
+        <h1>Choisissez la formule qui vous correspond</h1>
+        <p>Trois formules simples, sans engagement caché, pour vous entraîner à votre rythme et selon vos objectifs.</p>
+    </section>
+
+    <!-- SECTION 2 : PLANS -->
+    <section class="plans-section">
+        <div class="plans-grid">
+
+            <div class="plan-card">
+                <h3 class="plan-name">Essentiel</h3>
+                <p class="plan-desc">Pour découvrir la salle et vous entraîner en autonomie.</p>
+                <div class="plan-price">
+                    <span class="plan-amount">150DH</span>
+                    <span class="plan-period">/ Mois</span>
+                </div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i>Accès illimité à la salle</li>
+                    <li><i class="fas fa-check"></i>Espace musculation & cardio</li>
+                    <li><i class="fas fa-check"></i>Vestiaires & douches</li>
+                </ul>
+                <a href="contact.html" class="plan-cta">Choisir cette formule</a>
+            </div>
+
+            <div class="plan-card featured">
+                <span class="plan-badge">Le plus populaire</span>
+                <h3 class="plan-name">Pro Fitness</h3>
+                <p class="plan-desc">Notre formule complète avec coaching et suivi personnalisé.</p>
+                <div class="plan-price">
+                    <span class="plan-amount">250DH</span>
+                    <span class="plan-period">/ Mois</span>
+                </div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i>Tout l'accès de la formule Essentiel</li>
+                    <li><i class="fas fa-check"></i>Programmes personnalisés selon vos objectifs</li>
+                    <li><i class="fas fa-check"></i>Séances guidées par des coachs experts</li>
+                    <li><i class="fas fa-check"></i>Suivi régulier de vos progrès</li>
+                    <li><i class="fas fa-check"></i>Accès à l'espace 100% femmes</li>
+                </ul>
+                <a href="contact.html" class="plan-cta">Choisir cette formule</a>
+            </div>
+
+            <div class="plan-card">
+                <h3 class="plan-name">Elite</h3>
+                <p class="plan-desc">Pour un accompagnement encore plus poussé, à deux ou en famille.</p>
+                <div class="plan-price">
+                    <span class="plan-amount">400DH</span>
+                    <span class="plan-period">/ Mois</span>
+                </div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i>Tout l'accès de la formule Pro Fitness</li>
+                    <li><i class="fas fa-check"></i>Plan nutritionnel personnalisé</li>
+                    <li><i class="fas fa-check"></i>2 séances privées / mois</li>
+                </ul>
+                <a href="contact.html" class="plan-cta">Choisir cette formule</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3 : AVANTAGES -->
+    <section class="perks-section">
+        <div class="perks-header">
+            <span class="sub-title" style="color:#00ff00;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:15px;">POURQUOI SH FITNESS</span>
+            <h2 class="section-title-custom" style="font-size:2rem;font-weight:600;margin:0;">Ce qui est inclus dans chaque abonnement</h2>
+        </div>
+        <div class="perks-grid">
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fas fa-dumbbell"></i></div>
+                <h3>Équipements modernes</h3>
+                <p>Machines et poids libres régulièrement entretenus et renouvelés.</p>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fas fa-user-check"></i></div>
+                <h3>Coachs certifiés</h3>
+                <p>Une équipe expérimentée pour corriger vos mouvements et vous guider.</p>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Suivi des progrès</h3>
+                <p>Un accompagnement dans la durée pour mesurer vos résultats.</p>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fas fa-users"></i></div>
+                <h3>Communauté motivante</h3>
+                <p>Une ambiance conviviale qui donne envie de revenir chaque semaine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 : FAQ -->
+    <section class="faq-section">
+        <div class="faq-header">
+            <span class="sub-title" style="color:#00ff00;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:15px;">QUESTIONS FRÉQUENTES</span>
+            <h2 class="section-title-custom" style="font-size:2rem;font-weight:600;margin:0;">Tout ce qu'il faut savoir avant de vous inscrire</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Y a-t-il un engagement de durée ?</summary>
+                <p>Non, tous nos abonnements sont sans engagement. Vous pouvez arrêter ou changer de formule à tout moment.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Puis-je changer de formule en cours de route ?</summary>
+                <p>Oui, il suffit de passer à l'accueil ou de nous contacter pour ajuster votre abonnement selon vos besoins.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Le coaching est-il inclus dans toutes les formules ?</summary>
+                <p>Le coaching personnalisé est inclus à partir de la formule Pro Fitness. La formule Essentiel donne accès à la salle en autonomie.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Comment puis-je m'inscrire ?</summary>
+                <p>Rendez-vous sur notre page Contact ou passez directement à la salle à Rabat, notre équipe vous accompagnera dans l'inscription.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="img/sh.fitness.logo.png" alt="SH Fitness Club" class="footer-logo">
+                <p class="footer-desc">
+                    Transformez votre corps et votre esprit grâce à un accompagnement personnalisé et des programmes d'entraînement sur mesure.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/shfitness.ma/?hl=fr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61577087640786"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#services">Coaching personnalisé</a></li>
+                    <li><a href="index.html#services">Plans nutritionnels</a></li>
+                    <li><a href="index.html#services">Entraînement de groupe</a></li>
+                    <li><a href="index.html#services">Renforcement & Conditionnement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Horaires</h4>
+                <p class="hours-text"><strong>Lundi - Vendredi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Samedi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Dimanche :</strong> 08:00 - 18:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SH Fitness Club. Tous droits réservés.</p>
+            <p>Discipline. Concentration. Résultats.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
