@@ -23,6 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// --- HERO : apparition en cascade dès le chargement de la page ---
+document.addEventListener("DOMContentLoaded", () => {
+    const heroSection = document.querySelector('.hero-section');
+    if (!heroSection) return;
+
+    // On attend deux frames pour être sûr que le navigateur applique
+    // bien l'état initial (opacity:0) avant de déclencher la transition.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            heroSection.classList.add('hero-loaded');
+        });
+    });
+});
+
 // --- Animations d'apparition au scroll (About) ---
 document.addEventListener("DOMContentLoaded", function () {
     const observerOptions = { root: null, rootMargin: "0px", threshold: 0.15 };
@@ -156,6 +170,51 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(mapCard);
     }
 });
+
+// --- COMPTEURS ANIMÉS : les chiffres montent de 0 jusqu'à leur valeur finale ---
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.count-number');
+    if (!counters.length) return;
+
+    const animateCounter = (el) => {
+        const target = parseFloat(el.dataset.target || "0");
+        const decimals = parseInt(el.dataset.decimals || "0", 10);
+        const prefix = el.dataset.prefix || "";
+        const suffix = el.dataset.suffix || "";
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        const step = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // easeOutCubic : demarre vite puis ralentit doucement a la fin
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const currentValue = target * eased;
+
+            el.textContent = prefix + currentValue.toFixed(decimals) + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = prefix + target.toFixed(decimals) + suffix;
+            }
+        };
+
+        requestAnimationFrame(step);
+    };
+
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    counters.forEach(el => counterObserver.observe(el));
+});
+
 // --- MENU BURGER (ouverture / fermeture de l'overlay mobile) ---
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
