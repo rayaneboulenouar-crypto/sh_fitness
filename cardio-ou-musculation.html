@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio ou musculation : que choisir en premier ? - SH Fitness Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* BLOG ARTICLE PAGE SPECIFIC STYLES */
+        .article-hero {
+            padding: 100px 50px 50px 50px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 255, 0, 0.05) 0%, rgba(0,0,0,1) 70%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .article-tag {
+            display: inline-block;
+            color: #00ff00;
+            background-color: rgba(0, 255, 0, 0.08);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .article-title {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin: 0 0 20px 0;
+            background: linear-gradient(180deg, #ffffff 40%, #757575 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Open Sans', sans-serif;
+            color: #999999;
+            font-size: 13.5px;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-meta i {
+            color: #00ff00;
+        }
+
+        .article-cover-section {
+            padding: 0 50px 60px 50px;
+        }
+        .article-cover-box {
+            max-width: 950px;
+            margin: 0 auto;
+            width: 100%;
+            height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+        }
+        .article-cover-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-body-section {
+            padding: 20px 50px 80px 50px;
+        }
+        .article-body {
+            max-width: 780px;
+            margin: 0 auto;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .article-body p.lead {
+            color: #d6d6d6;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .article-body h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 40px 0 18px 0;
+        }
+        .article-body h2:first-of-type {
+            margin-top: 0;
+        }
+        .article-body p {
+            color: #a3a3a3;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0 0 18px 0;
+        }
+        .article-body strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background-color: #0d0d0d;
+            border-left: 3px solid #00ff00;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin: 30px 0;
+        }
+        .highlight-box p {
+            color: #d6d6d6;
+            font-size: 14.5px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .highlight-box p strong {
+            color: #00ff00;
+        }
+
+        .article-conclusion {
+            color: #d6d6d6;
+            font-size: 15.5px;
+            line-height: 1.8;
+            margin: 40px 0 0 0;
+        }
+
+        .article-cta-section {
+            padding: 20px 50px 90px 50px;
+        }
+        .article-cta-box {
+            max-width: 950px;
+            margin: 0 auto;
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+        .article-cta-box h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+        }
+        .article-cta-box p {
+            font-family: 'Open Sans', sans-serif;
+            color: #a3a3a3;
+            font-size: 14.5px;
+            max-width: 550px;
+            margin: 0 auto 28px auto;
+            line-height: 1.6;
+        }
+        .article-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-cta-primary {
+            background-color: #00ff00;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-cta-primary:hover {
+            background-color: #00e600;
+            transform: translateY(-2px);
+        }
+        .btn-cta-secondary {
+            border: 1px solid #333;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-secondary:hover {
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+
+        .related-section {
+            padding: 20px 50px 100px 50px;
+            background-color: #080808;
+        }
+        .related-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .related-header span {
+            color: #00ff00;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .related-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .article-hero { padding: 90px 25px 40px 25px; }
+            .article-title { font-size: 2.1rem; }
+            .article-meta { flex-wrap: wrap; gap: 12px; }
+            .article-cover-section, .article-body-section, .article-cta-section, .related-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .article-cover-box { height: 240px; }
+            .highlight-box { padding: 20px 22px; }
+            .article-cta-box { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html"><img src="../img/sh.fitness.logo.png" alt="SH.FITNESS CLUB" class="logo-img"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Accueil</a></li>
+                <li><a href="../about.html">À propos</a></li>
+                <li><a href="../tarifs.html">Tarifs</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../contact.html" class="btn-nav-contact">Contact</a></li>
+            </ul>
+            <div class="menu-burger" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="../index.html#home">Accueil</a></li>
+            <li><a href="../about.html">À propos</a></li>
+            <li><a href="../tarifs.html">Tarifs</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html" class="btn-nav-contact-mobile">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-tag">Cardio & Functional</span>
+            <h1 class="article-title">Cardio ou musculation : que choisir en premier ?</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar-days"></i> 2 Août 2026</span>
+                <span><i class="fas fa-clock"></i> <span id="readingTime">5</span> min de lecture</span>
+                <span><i class="fas fa-user"></i> Équipe SH Fitness</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVER IMAGE -->
+    <section class="article-cover-section">
+        <div class="article-cover-box">
+            <img src="../img/cardio_image.jpg" alt="Cardio ou musculation : que choisir en premier ?">
+        </div>
+    </section>
+
+    <!-- ARTICLE BODY -->
+    <section class="article-body-section">
+        <div class="article-body">
+            <p class="lead">
+                On répond à la question qu'on nous pose le plus souvent à l'accueil, avec des exemples concrets selon vos objectifs. Faut-il commencer sa séance par le cardio ou par la musculation ? La réponse dépend surtout de ce que vous cherchez à obtenir.
+            </p>
+
+            <h2>Si votre objectif est la prise de muscle</h2>
+            <p>
+                Dans ce cas, mieux vaut commencer par la musculation. Vos réserves d'énergie sont encore fraîches et vos muscles ne sont pas fatigués, ce qui vous permet de soulever plus lourd et avec une meilleure technique. Faire du cardio intense juste avant risque de réduire vos performances sur les charges.
+            </p>
+            <p>
+                Un cardio léger de 5 à 10 minutes en échauffement reste toutefois une bonne idée pour préparer le corps, tant qu'il ne devient pas trop fatigant.
+            </p>
+
+            <h2>Si votre objectif est la perte de poids ou l'endurance</h2>
+            <p>
+                Ici, l'ordre compte moins. Certains préfèrent le cardio en premier pour bien se réveiller et augmenter la dépense calorique, d'autres le gardent pour la fin de séance quand les muscles sont déjà fatigués. Ce qui compte avant tout, c'est la régularité sur la semaine, pas l'ordre exact dans une même séance.
+            </p>
+
+            <div class="highlight-box">
+                <p><strong>À retenir :</strong> il n'y a pas de règle universelle. L'ordre idéal dépend de votre objectif principal, de votre niveau de fatigue et de vos préférences personnelles. Le plus important reste la constance sur la durée.</p>
+            </div>
+
+            <h2>Peut-on combiner les deux dans la même séance ?</h2>
+            <p>
+                Oui, et c'est même ce que font la plupart de nos membres. L'essentiel est de respecter l'ordre selon votre priorité du jour : musculation d'abord si vous visez la force et la masse, cardio d'abord si vous cherchez surtout l'endurance ou l'échauffement cardiovasculaire.
+            </p>
+            <p>
+                Vous pouvez aussi alterner les deux selon les jours de la semaine, ce qui permet de travailler tous vos objectifs sans que l'un prenne toujours le pas sur l'autre.
+            </p>
+
+            <p class="article-conclusion">
+                En résumé : le cardio et la musculation ne sont pas en concurrence, ils se complètent. La bonne organisation dépend de votre objectif du moment. En cas de doute, nos coachs peuvent vous aider à structurer vos séances selon vos priorités.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="article-cta-section">
+        <div class="article-cta-box">
+            <h2>Besoin d'aide pour structurer vos séances ?</h2>
+            <p>Nos coachs peuvent vous aider à organiser cardio et musculation selon vos objectifs, avec un programme sur mesure.</p>
+            <div class="article-cta-buttons">
+                <a href="../tarifs.html" class="btn-cta-primary">Voir nos abonnements</a>
+                <a href="../contact.html" class="btn-cta-secondary">Contacter un coach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLES SIMILAIRES -->
+    <section class="related-section">
+        <div class="related-header">
+            <span>À LIRE AUSSI</span>
+            <h2>Articles similaires</h2>
+        </div>
+        <div class="blog-grid">
+
+            <a href="erreurs_qui_freinent_votre_prise_de_masse.html" class="blog-card">
+                <img src="../img/Erreure_prise_de_masse_imageblog.png" alt="Musculation" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Musculation</span>
+                    <h3 class="blog-card-title">5 erreurs qui freinent votre prise de masse</h3>
+                    <p class="blog-card-excerpt">Récupération, volume d'entraînement, alimentation : les pièges les plus courants pour progresser en musculation, et comment les éviter.</p>
+                    <span class="blog-card-date">28 Août 2026</span>
+                </div>
+            </a>
+
+            <a href="Bien_manger_avant_et_après_l'entraînement .html" class="blog-card">
+                <img src="../img/Healthy_man_eating_image.jpg" alt="Nutrition" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Nutrition</span>
+                    <h3 class="blog-card-title">Bien manger avant et après l'entraînement</h3>
+                    <p class="blog-card-excerpt">Nos coachs partagent leurs conseils pour optimiser vos repas autour des séances et maximiser vos résultats.</p>
+                    <span class="blog-card-date">14 Août 2026</span>
+                </div>
+            </a>
+
+            <a href="../blog.html" class="blog-card">
+                <img src="../img/blog-coachs.jpg" alt="Coachs" class="blog-card-img">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Coaching</span>
+                    <h3 class="blog-card-title">Pourquoi un coach change tout dans votre progression</h3>
+                    <p class="blog-card-excerpt">Correction des mouvements, suivi personnalisé, motivation : ce qu'un coaching sur mesure change réellement.</p>
+                    <span class="blog-card-date">18 Juin 2026</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="../img/sh.fitness.logo.png" alt="SH Fitness Club" class="footer-logo">
+                <p class="footer-desc">
+                    Transformez votre corps et votre esprit grâce à un accompagnement personnalisé et des programmes d'entraînement sur mesure.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/shfitness.ma/?hl=fr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61577087640786"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../about.html">À propos</a></li>
+                    <li><a href="../tarifs.html">Tarifs</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html#services">Coaching personnalisé</a></li>
+                    <li><a href="../index.html#services">Plans nutritionnels</a></li>
+                    <li><a href="../index.html#services">Entraînement de groupe</a></li>
+                    <li><a href="../index.html#services">Renforcement & Conditionnement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Horaires</h4>
+                <p class="hours-text"><strong>Lundi - Vendredi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Samedi :</strong> 08:00 - 22:00</p>
+                <p class="hours-text"><strong>Dimanche :</strong> 08:00 - 18:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SH Fitness Club. Tous droits réservés.</p>
+            <p>Discipline. Concentration. Résultats.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // --- Calcul automatique du temps de lecture selon le contenu de l'article ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const articleBody = document.querySelector('.article-body');
+            const readingTimeEl = document.getElementById('readingTime');
+            if (!articleBody || !readingTimeEl) return;
+
+            const text = articleBody.textContent || "";
+            const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+
+            const WORDS_PER_MINUTE = 200;
+            const minutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+
+            readingTimeEl.textContent = minutes;
+        });
+    </script>
+</body>
+</html>
