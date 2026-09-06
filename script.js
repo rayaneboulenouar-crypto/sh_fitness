@@ -150,6 +150,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// --- Blog : apparition en cascade des cartes ---
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.blog-card');
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }, index * 100);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(25px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(card);
+    });
+});
+
 // --- Carte de localisation : apparition douce ---
 document.addEventListener("DOMContentLoaded", () => {
     const mapCard = document.querySelector('.map-card');
@@ -214,6 +237,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     counters.forEach(el => counterObserver.observe(el));
 });
+
+// --- MENU BURGER (ouverture / fermeture de l'overlay mobile) ---
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (burgerBtn && mobileMenu) {
+    burgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Ferme le menu mobile quand on clique sur un lien
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+}
 
 // --- NAV QUI RESTE FIXE EN HAUT ET SE REPLIE AU SCROLL ---
 // En scrollant vers le bas : les liens disparaissent et le bouton burger apparait (meme sur PC).
